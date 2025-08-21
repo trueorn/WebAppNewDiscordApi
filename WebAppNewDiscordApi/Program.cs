@@ -1,4 +1,6 @@
 
+using WebAppNewDiscordApi.Services;
+
 namespace WebAppNewDiscordApi
 {
     public class Program
@@ -13,6 +15,10 @@ namespace WebAppNewDiscordApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddHttpClient<UserService>();
+
 
             var app = builder.Build();
 
